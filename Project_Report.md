@@ -2,7 +2,7 @@
 ## Quantifying the Impact of Menstrual Cycle Phases on Workplace Productivity
 
 **Project Title:** Cycle-Based Women's Productivity Analysis and Prediction  
-**Dataset Size:** 3,000 Verified Records  
+**Dataset Size:** 3,000 Synthetic Reports 
 **Machine Learning Engine:** Random Forest Regressor ($R^2 = 0.9737$, MAE = $3.07$)  
 
 ---
