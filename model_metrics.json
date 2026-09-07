@@ -1,0 +1,48 @@
+{
+  "metrics": {
+    "Linear Regression": {
+      "MAE": 3.1086,
+      "MSE": 15.3772,
+      "RMSE": 3.9214,
+      "R2_Score": 0.9749
+    },
+    "Random Forest": {
+      "MAE": 3.0345,
+      "MSE": 14.6419,
+      "RMSE": 3.8265,
+      "R2_Score": 0.9761
+    },
+    "Gradient Boosting": {
+      "MAE": 2.7897,
+      "MSE": 12.3658,
+      "RMSE": 3.5165,
+      "R2_Score": 0.9798
+    }
+  },
+  "feature_importance": {
+    "PCOS_PCOD_Encoded": 0.0002154438213286959,
+    "Mood_Score": 0.0018759109433125038,
+    "Stress_Level": 0.002069591327743477,
+    "Symptom_Severity": 0.002298589011750755,
+    "Period_Delay_Days": 0.002422075955582734,
+    "Hormonal_Imbalance_Score": 0.002657803859489938,
+    "Pain_Level": 0.004949390647649221,
+    "Energy_Level": 0.006341819307624101,
+    "Cycle_Phase_Encoded": 0.00936644757113312,
+    "Sleep_Hours": 0.028046476541621138,
+    "Health_Score": 0.9397564510127642
+  },
+  "feature_names": [
+    "Cycle_Phase_Encoded",
+    "PCOS_PCOD_Encoded",
+    "Period_Delay_Days",
+    "Hormonal_Imbalance_Score",
+    "Symptom_Severity",
+    "Sleep_Hours",
+    "Stress_Level",
+    "Pain_Level",
+    "Mood_Score",
+    "Energy_Level",
+    "Health_Score"
+  ]
+}

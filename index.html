@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cycle-Based Women's Productivity & PCOD Health Tracker Platform</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="dark-theme">
+    <div class="app-container">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar">
+            <div class="brand">
+                <div class="logo-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+                </div>
+                <div>
+                    <h2>AuraFlow Analytics</h2>
+                    <span class="badge-tag">Cycle & PCOD Health</span>
+                </div>
+            </div>
+
+            <nav class="nav-menu">
+                <button class="nav-item active" data-tab="tab-executive">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+                    Executive Overview
+                </button>
+                <button class="nav-item" data-tab="tab-phase">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+                    Cycle Phase Insights
+                </button>
+                <button class="nav-item" data-tab="tab-tracker">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+                    Period & PCOD Tracker
+                </button>
+                <button class="nav-item" data-tab="tab-factors">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+                    Productivity Drivers
+                </button>
+                <button class="nav-item" data-tab="tab-predictor">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                    ML Predictor Engine
+                </button>
+            </nav>
+
+            <div class="sidebar-footer">
+                <div class="dataset-meta">
+                    <span class="dot online"></span>
+                    <span>3,000 Records (18% PCOD)</span>
+                </div>
+                <div class="model-badge">Random Forest R² = 0.973</div>
+            </div>
+        </aside>
+
+        <!-- Main Content Workspace -->
+        <main class="main-workspace">
+            <!-- Top Header -->
+            <header class="top-header">
+                <div class="header-title">
+                    <h1 id="page-title">Executive Summary Dashboard</h1>
+                    <p id="page-subtitle">Bio-statistical analysis of menstrual phase & PCOD impacts on daily work performance</p>
+                </div>
+            </header>
+
+            <!-- TAB 1: EXECUTIVE DASHBOARD -->
+            <section id="tab-executive" class="tab-content active">
+                <div class="kpi-grid">
+                    <div class="kpi-card glass">
+                        <div class="kpi-header">
+                            <span class="kpi-label">Avg Productivity Score</span>
+                            <div class="kpi-icon icon-purple">⚡</div>
+                        </div>
+                        <div class="kpi-value" id="kpi-productivity">64.5 <span class="unit">/ 100</span></div>
+                        <div class="kpi-trend trend-up">▲ Peak in Ovulation (77.8)</div>
+                    </div>
+                    <div class="kpi-card glass">
+                        <div class="kpi-header">
+                            <span class="kpi-label">Avg Sleep Duration</span>
+                            <div class="kpi-icon icon-blue">🌙</div>
+                        </div>
+                        <div class="kpi-value" id="kpi-sleep">7.4 <span class="unit">hrs</span></div>
+                        <div class="kpi-trend trend-neutral">● Optimal Target: 7.5–8.5h</div>
+                    </div>
+                    <div class="kpi-card glass">
+                        <div class="kpi-header">
+                            <span class="kpi-label">Avg Stress Index</span>
+                            <div class="kpi-icon icon-orange">🔥</div>
+                        </div>
+                        <div class="kpi-value" id="kpi-stress">5.1 <span class="unit">/ 10</span></div>
+                        <div class="kpi-trend trend-down">▼ Highest in Menstrual (6.5)</div>
+                    </div>
+                    <div class="kpi-card glass">
+                        <div class="kpi-header">
+                            <span class="kpi-label">PCOD / PCOS Prevalence</span>
+                            <div class="kpi-icon icon-coral">🩺</div>
+                        </div>
+                        <div class="kpi-value" id="kpi-pcod">18.0 <span class="unit">%</span></div>
+                        <div class="kpi-trend trend-down">▼ Avg Impact: -12.4 pts</div>
+                    </div>
+                </div>
+
+                <div class="charts-row">
+                    <div class="chart-card glass flex-2">
+                        <div class="card-header">
+                            <h3>Productivity Score by Cycle Phase & PCOD Condition</h3>
+                            <span class="card-tag">Core Finding</span>
+                        </div>
+                        <div class="chart-container">
+                            <canvas id="chart-phase-productivity"></canvas>
+                        </div>
+                    </div>
+                    <div class="chart-card glass flex-1">
+                        <div class="card-header">
+                            <h3>PCOD vs Non-PCOD Impact</h3>
+                            <span class="card-tag">Health Condition</span>
+                        </div>
+                        <div class="chart-container">
+                            <canvas id="chart-pcod-impact"></canvas>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="insights-banner glass">
+                    <div class="banner-icon">🩺</div>
+                    <div class="banner-text">
+                        <h4>Key Health & Productivity Finding</h4>
+                        <p>Employees with diagnosed <strong>PCOD / PCOS</strong> experience an average cycle delay of <strong>12.4 days</strong>, resulting in higher stress levels (7.2/10) and an average <strong>14.2% drop in daily productivity</strong> compared to regular cycle cohorts.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- TAB 2: CYCLE PHASE DASHBOARD -->
+            <section id="tab-phase" class="tab-content">
+                <div class="phase-selector-bar glass">
+                    <span class="filter-label">Select Cycle Phase Focus:</span>
+                    <div class="phase-pills">
+                        <button class="pill active" data-phase="All">All Phases</button>
+                        <button class="pill" data-phase="Menstrual">Menstrual (Days 1–5)</button>
+                        <button class="pill" data-phase="Follicular">Follicular (Days 6–13)</button>
+                        <button class="pill" data-phase="Ovulation">Ovulation (Days 14–16)</button>
+                        <button class="pill" data-phase="Luteal">Luteal (Days 17–28)</button>
+                    </div>
+                </div>
+
+                <div class="charts-grid-2x2">
+                    <div class="chart-card glass">
+                        <div class="card-header">
+                            <h3>Stress Level Distribution across Phases</h3>
+                        </div>
+                        <div class="chart-container">
+                            <canvas id="chart-phase-stress"></canvas>
+                        </div>
+                    </div>
+                    <div class="chart-card glass">
+                        <div class="card-header">
+                            <h3>Mood Score Comparison</h3>
+                        </div>
+                        <div class="chart-container">
+                            <canvas id="chart-phase-mood"></canvas>
+                        </div>
+                    </div>
+                    <div class="chart-card glass">
+                        <div class="card-header">
+                            <h3>Energy Level vs Physical Pain</h3>
+                        </div>
+                        <div class="chart-container">
+                            <canvas id="chart-phase-energy-pain"></canvas>
+                        </div>
+                    </div>
+                    <div class="chart-card glass">
+                        <div class="card-header">
+                            <h3>Period Delay vs Productivity Impact</h3>
+                        </div>
+                        <div class="chart-container">
+                            <canvas id="chart-delay-productivity"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- TAB 3: PERIOD & PCOD TRACKER MODULE -->
+            <section id="tab-tracker" class="tab-content">
+                <div class="predictor-layout">
+                    <!-- Period & Symptom Log Form -->
+                    <div class="predictor-form glass">
+                        <h3>Period & PCOD Health Logger</h3>
+                        <p class="form-desc">Track your cycle regularity, period delays, PCOD symptoms, and receive personalized hormonal health insights.</p>
+
+                        <div class="form-group">
+                            <label>PCOD / PCOS Diagnosis Status</label>
+                            <select id="track-pcod" class="select-input">
+                                <option value="No">No PCOD / Regular Cycles</option>
+                                <option value="Yes" selected>Diagnosed PCOD / PCOS</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="label-row">
+                                <label>Current Cycle Length (Days)</label>
+                                <span id="val-cycle-len" class="slider-val">38 Days</span>
+                            </div>
+                            <input type="range" id="track-cycle-len" min="21" max="60" step="1" value="38">
+                        </div>
+
+                        <div class="form-group">
+                            <div class="label-row">
+                                <label>Period Delay (Days Late)</label>
+                                <span id="val-delay-days" class="slider-val">10 Days Late</span>
+                            </div>
+                            <input type="range" id="track-delay-days" min="0" max="30" step="1" value="10">
+                        </div>
+
+                        <div class="form-group">
+                            <div class="label-row">
+                                <label>Hormonal Imbalance Severity (1–10)</label>
+                                <span id="val-hormonal" class="slider-val">7 / 10</span>
+                            </div>
+                            <input type="range" id="track-hormonal" min="1" max="10" step="1" value="7">
+                        </div>
+
+                        <div class="form-group">
+                            <label>Primary Symptoms Experienced Today</label>
+                            <div class="checkbox-grid">
+                                <label class="chip-check"><input type="checkbox" id="sym-cramps" checked> Abdominal Cramps</label>
+                                <label class="chip-check"><input type="checkbox" id="sym-bloating" checked> Severe Bloating</label>
+                                <label class="chip-check"><input type="checkbox" id="sym-fatigue" checked> Extreme Fatigue</label>
+                                <label class="chip-check"><input type="checkbox" id="sym-acne" checked> Hormonal Acne</label>
+                                <label class="chip-check"><input type="checkbox" id="sym-mood"> Mood Fluctuation</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- PCOD Health Assessment Card -->
+                    <div class="predictor-output glass">
+                        <div class="output-header">
+                            <span>PCOD & Irregularity Health Index</span>
+                            <span class="confidence-badge">Bio-Tracker Active</span>
+                        </div>
+
+                        <div class="score-display">
+                            <div class="score-circle">
+                                <svg class="progress-ring" width="180" height="180">
+                                    <circle class="progress-ring__circle-bg" stroke="rgba(255,255,255,0.1)" stroke-width="12" fill="transparent" r="76" cx="90" cy="90"/>
+                                    <circle id="tracker-ring" class="progress-ring__circle" stroke="#e76f51" stroke-width="12" fill="transparent" r="76" cx="90" cy="90"/>
+                                </svg>
+                                <div class="score-text">
+                                    <span id="tracker-score">68.2</span>
+                                    <small>Health Risk</small>
+                                </div>
+                            </div>
+                            <div id="tracker-tier" class="score-tier tier-moderate">PCOD Irregularity Alert</div>
+                        </div>
+
+                        <div class="recommendation-card">
+                            <h4>Personalized PCOD & Cycle Wellness Advice</h4>
+                            <ul id="tracker-rec-list">
+                                <li><strong>Cycle Status:</strong> 10-day period delay detected with PCOD markers. Higher cortisol & insulin sensitivity vulnerability today.</li>
+                                <li><strong>Nutrition & Lifestyle:</strong> Prioritize low-GI anti-inflammatory foods (omega-3s, magnesium) to help balance hormonal spikes.</li>
+                                <li><strong>Workplace Strategy:</strong> Request flex remote work during peak symptom days to manage fatigue and pain.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- TAB 4: PRODUCTIVITY DRIVERS (EDA) -->
+            <section id="tab-factors" class="tab-content">
+                <div class="charts-row">
+                    <div class="chart-card glass flex-1">
+                        <div class="card-header">
+                            <h3>Sleep Duration vs Productivity</h3>
+                        </div>
+                        <div class="chart-container">
+                            <canvas id="chart-sleep-productivity"></canvas>
+                        </div>
+                    </div>
+                    <div class="chart-card glass flex-1">
+                        <div class="card-header">
+                            <h3>Stress Index vs Productivity</h3>
+                        </div>
+                        <div class="chart-container">
+                            <canvas id="chart-stress-productivity"></canvas>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="charts-row">
+                    <div class="chart-card glass flex-1">
+                        <div class="card-header">
+                            <h3>Pain Severity vs Productivity</h3>
+                        </div>
+                        <div class="chart-container">
+                            <canvas id="chart-pain-productivity"></canvas>
+                        </div>
+                    </div>
+                    <div class="chart-card glass flex-1">
+                        <div class="card-header">
+                            <h3>Feature Correlation Matrix</h3>
+                        </div>
+                        <div class="chart-container">
+                            <canvas id="chart-correlation"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- TAB 5: PREDICTIVE MODEL SIMULATOR -->
+            <section id="tab-predictor" class="tab-content">
+                <div class="predictor-layout">
+                    <!-- Form Controls -->
+                    <div class="predictor-form glass">
+                        <h3>Simulate Employee Parameters</h3>
+                        <p class="form-desc">Adjust sliders including PCOD condition & period delay to calculate predicted daily productivity using the Random Forest Engine.</p>
+
+                        <div class="form-group">
+                            <label>Cycle Phase</label>
+                            <select id="sim-phase" class="select-input">
+                                <option value="Menstrual">Menstrual Phase (Days 1–5)</option>
+                                <option value="Follicular">Follicular Phase (Days 6–13)</option>
+                                <option value="Ovulation" selected>Ovulation Phase (Days 14–16)</option>
+                                <option value="Luteal">Luteal Phase (Days 17–28)</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label>PCOD / PCOS Diagnosis</label>
+                            <select id="sim-pcod" class="select-input">
+                                <option value="No">No PCOD / PCOS</option>
+                                <option value="Yes">Diagnosed PCOD / PCOS</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="label-row">
+                                <label>Period Delay (Days Late)</label>
+                                <span id="val-sim-delay" class="slider-val">0 Days</span>
+                            </div>
+                            <input type="range" id="sim-delay" min="0" max="30" step="1" value="0">
+                        </div>
+
+                        <div class="form-group">
+                            <div class="label-row">
+                                <label>Sleep Duration (Hours)</label>
+                                <span id="val-sleep" class="slider-val">7.5 hrs</span>
+                            </div>
+                            <input type="range" id="sim-sleep" min="4.0" max="10.0" step="0.5" value="7.5">
+                        </div>
+
+                        <div class="form-group">
+                            <div class="label-row">
+                                <label>Stress Level (1–10)</label>
+                                <span id="val-stress" class="slider-val">4 / 10</span>
+                            </div>
+                            <input type="range" id="sim-stress" min="1" max="10" step="1" value="4">
+                        </div>
+
+                        <div class="form-group">
+                            <div class="label-row">
+                                <label>Pain Level (1–10)</label>
+                                <span id="val-pain" class="slider-val">2 / 10</span>
+                            </div>
+                            <input type="range" id="sim-pain" min="1" max="10" step="1" value="2">
+                        </div>
+
+                        <div class="form-group">
+                            <div class="label-row">
+                                <label>Mood Score (1–10)</label>
+                                <span id="val-mood" class="slider-val">8 / 10</span>
+                            </div>
+                            <input type="range" id="sim-mood" min="1" max="10" step="1" value="8">
+                        </div>
+
+                        <div class="form-group">
+                            <div class="label-row">
+                                <label>Energy Level (1–10)</label>
+                                <span id="val-energy" class="slider-val">8 / 10</span>
+                            </div>
+                            <input type="range" id="sim-energy" min="1" max="10" step="1" value="8">
+                        </div>
+                    </div>
+
+                    <!-- Live Output Panel -->
+                    <div class="predictor-output glass">
+                        <div class="output-header">
+                            <span>Predicted Daily Productivity Score</span>
+                            <span class="confidence-badge">ML Confidence: 97.3%</span>
+                        </div>
+
+                        <div class="score-display">
+                            <div class="score-circle">
+                                <svg class="progress-ring" width="180" height="180">
+                                    <circle class="progress-ring__circle-bg" stroke="rgba(255,255,255,0.1)" stroke-width="12" fill="transparent" r="76" cx="90" cy="90"/>
+                                    <circle id="score-ring" class="progress-ring__circle" stroke="#2a9d8f" stroke-width="12" fill="transparent" r="76" cx="90" cy="90"/>
+                                </svg>
+                                <div class="score-text">
+                                    <span id="predicted-score">82.4</span>
+                                    <small>/ 100</small>
+                                </div>
+                            </div>
+                            <div id="score-tier" class="score-tier tier-optimal">Optimal Output</div>
+                        </div>
+
+                        <div class="recommendation-card">
+                            <h4>Workplace Action Plan & Cycle-Sync Advice</h4>
+                            <ul id="rec-list">
+                                <li><strong>Phase Strategy:</strong> Capitalize on high energy during Ovulation for complex problem solving, client presentations, and team leadership.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

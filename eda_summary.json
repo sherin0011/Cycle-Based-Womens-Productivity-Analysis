@@ -1,0 +1,20 @@
+{
+  "total_records": 3000,
+  "phase_means": {
+    "Follicular": 80.33004172461753,
+    "Luteal": 51.691059602649005,
+    "Menstrual": 34.945300261096605,
+    "Ovulation": 91.74302134646962
+  },
+  "correlation_with_productivity": {
+    "Age": -0.010783521204996574,
+    "Cycle_Phase_Encoded": 0.23188661958577314,
+    "Sleep_Hours": 0.36042987586258146,
+    "Stress_Level": -0.6270103809705279,
+    "Pain_Level": -0.7728162151094621,
+    "Mood_Score": 0.7439181653776414,
+    "Energy_Level": 0.8468634927393596,
+    "Health_Score": 0.9620888967944432,
+    "Productivity_Score": 1.0
+  }
+}
